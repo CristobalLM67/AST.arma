@@ -1,0 +1,41 @@
+---
+title: "Manual, Analisis de series temporales"
+format: docx
+author: Jesus Cristobal Lara
+output: 
+ header-includes:
+ - \usepackage[spanish]{babel}
+bibliography: references.bib
+---
+
+## Introducción
+
+El análisis de series temporales es una técnica estadística utilizada para modelar y predecir valores futuros de una variable en función de sus valores pasados. La técnica del modelo ARMA (AutoRegressive Moving Average) es una de las más utilizadas en el análisis de series temporales debido a su capacidad para modelar patrones complejos en los datos. El modelo ARMA combina dos componentes principales: el modelo autorregresivo (AR) y el modelo de media móvil (MA). El modelo AR considera que la variable en estudio está relacionada con sus valores pasados, mientras que el modelo MA considera que la variable está influenciada por los errores pasados de predicción. Ambos modelos se combinan en el modelo ARMA para obtener una descripción completa de la serie temporal. El modelo ARMA es capaz de modelar una amplia variedad de patrones en los datos, incluyendo tendencias, estacionalidad, ciclos y patrones de ruido. Además, el modelo ARMA permite estimar los parámetros óptimos de los modelos y proporcionar intervalos de confianza para los pronósticos [@george2015].
+
+Si bien la importancia de los modeos ARMA es importante pues permite predecir la evolucion de los datos en el futuro es por eso que en el siguiente manual se da una breve explicacion de como se utiliza el paquete de R, [@R] que se denomino "AST.arma". El codigo fuente del paquete esta alojado en la siguiente direccion de Github <https://github.com/CristobalLM67/AST.arma>
+
+## Objetivos
+
+El objetivo principal del análisis de series temporales con modelo ARMA es proporcionar una descripción precisa y detallada del comportamiento de una variable a lo largo del tiempo. Esto incluye identificar patrones y tendencias en los datos, modelar su estructura y estimar los parámetros óptimos del modelo. Además, el análisis de series temporales con modelo ARMA también tiene como objetivo predecir los valores futuros de la variable en estudio basándose en sus valores pasados. Esto es esencial para la toma de decisiones en diversas áreas. Otro objetivo importante del análisis de series temporales con modelo ARMA es proporcionar intervalos de confianza para los pronósticos. Estos intervalos permiten evaluar la precisión y el riesgo asociado con las predicciones del modelo, lo que ayuda a los usuarios a tomar decisiones informadas. Los objetivos del análisis de series temporales con modelo ARMA son maximizar la precisión y la fiabilidad de las predicciones futuras de una variable, así como proporcionar información detallada sobre su comportamiento en el pasado y en el presente.
+
+## Modelo estadístico
+
+El modelo ARMA (AutoRegressive Moving Average) es un modelo estadístico que se utiliza para analizar series temporales. Este modelo combina dos componentes principales: el modelo autorregresivo (AR) y el modelo de media móvil (MA). El modelo AR se basa en la idea de que el valor actual de una variable depende de sus valores pasados. Por lo tanto, el modelo AR intenta predecir el valor actual de la variable en función de sus valores previos. Por otro lado, el modelo MA se basa en la idea de que el valor actual de una variable está influenciado por los errores de pronóstico pasados. El modelo ARMA se define como ARMA(p, q), donde p es el orden del modelo AR y q es el orden del modelo MA. El modelo ARMA se expresa como:
+
+y_t = c + ϕ1 y{t-1} + ϕ2 y{t-2} + ... + ϕp y{t-p} + e_t + θ1 e{t-1} + θ2 e{t-2} + ... + θq e{t-q}
+
+donde y_t es el valor de la variable en el tiempo t, c es una constante, ϕ_i son los coeficientes del modelo AR, e_t son los errores de pronóstico y θ_i son los coeficientes del modelo MA. El modelo ARMA se ajusta a los datos de la serie temporal mediante la estimación de los coeficientes ϕ_i y θ_i. Una vez ajustado el modelo, se pueden realizar predicciones de la variable en el futuro basándose en sus valores previos y en los errores de pronóstico pasados. El modelo ARMA es muy útil para el análisis de series temporales debido a su capacidad para modelar patrones complejos en los datos, incluyendo tendencias, estacionalidad, ciclos y patrones de ruido. Además, permite estimar los parámetros óptimos del modelo y proporcionar intervalos de confianza para los pronósticos [@Alberto2007].
+
+## Ejemplos de aplicacion del paquete "AST.arma"
+
+### Ejemplo
+
+principalmente debes de cargar el paquete en "library(AST.arma)" y "library(forecast)" La siguiente linea muestra como esta compuesta la funcion Analisis_series_temporales(ruta_archivo, orden_ar = 1, orden_ma = 1, start = c(2022,1), frequency = 12, end = c(2022,6), start_prueba = c(2022, 7), main = "produccion de carne", horizonte = 18) ruta de archivo se cambia por la ruta que vayas a usar, en orden_ar y orden_ma se puede cambiar la relacion, start sera para leer los datos y hacer la serie temporal, solo puede variar el primer numero que es el año en del cual sean tus datos, la frequency es la longitud de los datos, por ejemplo en la funcion se lee una frecuencia de 12 meses, end depende del año y la primera mitad de tus datos que sera para datos de entrenamiento, de igual forma start_prueba toma el mismo año pero la segunda mitad de los datos y se pone a partir de la terminacion de end que se termina en el 6, entonces seguiria el 7, main es el nombre de la grafica y puede variar dependiendo de que sean tus datos, por ultimo el horizonte va a depender de la longitud que quieras tus pronosticos, por ejemplo esta programado para 18 contando tambien los datos prueba.
+
+ejemplo resultados \<- Analisis_series_temporales("D:\\computo\\Datos.csv", orden_ar = 1, orden_ma = 2, start = c(2019,1), frequency = 12, end = c(2019,6), start_prueba = c(2019, 7), main = "produccion de leche", horizonte = 30)
+
+## Conclusiones
+
+El modelo estadístico ARMA (AutoRegressive Moving Average) es una herramienta útil para analizar series temporales y predecir valores futuros. Al combinar un modelo autorregresivo y un modelo de media móvil, el modelo ARMA es capaz de modelar patrones complejos en los datos y proporcionar predicciones precisas y confiables. El modelo ARMA se utiliza en una amplia variedad de aplicaciones, como finanzas, clima, medicina, ingeniería y economía, entre otras. Ejemplos específicos incluyen el pronóstico de precios de acciones, la previsión del clima y la predicción de la demanda de energía. En resumen, el modelo ARMA es una herramienta valiosa para el análisis de series temporales y puede ayudar a mejorar la toma de decisiones informadas en una variedad de industrias y campos de aplicación. El paquete busca que se puedan hacer predicciones de produccion en los diferentes sistemas, lo cual se considera importante pues puede ser de gran ayuda a productores.
+
+## Literatura citada
