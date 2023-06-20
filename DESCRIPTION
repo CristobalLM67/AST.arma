@@ -5,11 +5,8 @@ Version: 0.1.0
 Author: Jesus Cristobal Lara
 Maintainer: The package maintainer <cristoballara031@gmail.com>
 Description: Esta funcion nos permite analizar datos obtenidos de una serie de tiempo de algun tipo de produccion como por ejemlo la produccion de carne, huevo, leche, etc en periodos de años, meses y semanas. Usando un modelo de ARMA que es el modelo autorregresivo (AR) y modelo de media movil (MA)
-References: Box, G. & Jenkins, G. (1976). Time series analysis: forecasting and control. John Wiley & Sons.
+References: Huang et al. (1998) y Box et al. (2008)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: 
-    forecast (>= 8.21),
-    ggplot2 (>= 3.4.2)
 RoxygenNote: 7.2.3
